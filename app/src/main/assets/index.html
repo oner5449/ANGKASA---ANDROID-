@@ -924,17 +924,50 @@ main{background:radial-gradient(ellipse 75% 26% at 50% 0,rgba(255,255,255,.075),
 .intro-eyebrow,.intro-sub{color:#c5cedd!important}.intro-sub b{color:#fff!important}
 .intro-rule,.lock-card::before,.lt.on::after{background:linear-gradient(90deg,transparent,#fff,transparent)!important}
 .pbtn,.sbox button,.play,.lock-submit,.chip.on{background:var(--gold-grad)!important;color:#080b12!important;border-color:rgba(255,255,255,.75)!important;box-shadow:inset 0 1px 1px #fff,inset 0 -3px 8px rgba(55,65,85,.3),0 12px 30px -10px #000,0 0 24px rgba(225,235,255,.15)!important}
-/* Reserve an extra bottom strip for Android APK/app-name/taskbar overlays. */
-@media(max-width:760px){
- #app{padding-bottom:calc(30px + env(safe-area-inset-bottom,0px) + var(--wm))!important;gap:8px!important}
- #app{grid-template-rows:minmax(0,1fr) auto minmax(66px,auto)!important}
- aside{margin-bottom:7px;min-height:64px!important;transform:translateY(-5px)}
- #bar{margin-bottom:2px;position:relative;z-index:2}
- main{padding-bottom:28px!important}
-}
-@media(max-width:420px){#app{padding-bottom:calc(36px + env(safe-area-inset-bottom,0px) + var(--wm))!important}aside{min-height:62px!important}}
-@media(max-height:650px) and (max-width:760px){#app{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px) + var(--wm))!important}aside{min-height:54px!important}}
 @media(prefers-reduced-motion:reduce){#intro:after{animation:none}.intro-title span{animation:none!important}}
+</style>
+
+
+<style id="angkasa-mobile-layout-fix">
+@media (max-width:760px){
+  html,body{
+    height:100%;
+    height:100dvh;
+    overflow:hidden;
+  }
+  #app{
+    height:100%;
+    height:100dvh;
+    min-height:0;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:minmax(0,1fr) auto 56px!important;
+    grid-template-areas:"main" "bar" "side"!important;
+    gap:6px!important;
+    padding:5px 7px calc(4px + env(safe-area-inset-bottom,0px))!important;
+  }
+  main{
+    min-height:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding-bottom:12px!important;
+  }
+  #bar{
+    min-height:60px!important;
+    margin:0!important;
+  }
+  aside{
+    min-height:54px!important;
+    height:56px!important;
+    margin:0!important;
+    padding:2px 5px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+  }
+  aside .nav{
+    min-width:0!important;
+    padding:6px 5px!important;
+  }
+}
 </style>
 
 </head>
