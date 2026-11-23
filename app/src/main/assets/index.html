@@ -970,6 +970,25 @@ main{background:radial-gradient(ellipse 75% 26% at 50% 0,rgba(255,255,255,.075),
 }
 </style>
 
+
+<style id="angkasa-safe-top-fix">
+@media (max-width:760px){
+  main{
+    padding-top:calc(
+      clamp(16px, 2.5vw, 34px) +
+      clamp(36px, 5vh, 52px) +
+      env(safe-area-inset-top, 0px)
+    )!important;
+  }
+
+  #dbgBtn{
+    transform:translateY(
+      calc(clamp(36px, 5vh, 52px) + env(safe-area-inset-top, 0px))
+    )!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
